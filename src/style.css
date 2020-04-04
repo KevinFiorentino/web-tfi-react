@@ -1,0 +1,330 @@
+/* ******************** FONTS ******************** */
+
+/* Raleway regular */
+@font-face {
+    font-family: Raleway;
+  src: url(./assets/fonts/Raleway-Regular.ttf);
+    font-weight: normal;
+    font-style: normal;
+    unicode-range: "U+0-10FFFF";
+}
+
+/* Raleway bold */
+@font-face {
+    font-family: Raleway;
+  src: url(./assets/fonts/Raleway-Bold.ttf);
+    font-weight: bold;
+    font-style: normal;
+    unicode-range: "U+0-10FFFF";
+}
+
+
+/* ******************** HEADER ******************** */
+
+header {
+  background-color: #c5c1c1;
+}
+
+footer {
+    background-color: #141414;
+    margin-top: 50px;
+    height: 150px;
+    padding-top: 25px;
+}
+
+h1 {
+    color: black;
+    padding-top: 15px; 
+    font-family: Raleway;    
+}
+
+h2, h3 {
+    color: black;
+    padding-top: 20px; 
+    font-family: Raleway;
+}
+
+.logo-index {
+    width: 150px;
+    display: block;
+    margin: 15px auto 15px auto;
+    transform: scale(1);
+    transition: 1s;
+}
+
+.logo-index:hover, .logo-index:focus {
+    transform: scale(1.1);
+    transition: 1s;
+}
+
+.hr {
+    margin-top: 50px;
+}
+
+.img-v {
+    align-items: center;
+}
+.img-h {
+    justify-content: center;
+}
+.img-h-ciudad {
+    justify-content: flex-start;
+    padding: 0 !important;
+}
+.img-container {
+    display: flex;
+    align-items: start;
+}
+.img-cont-ciudad {
+    align-items: start;
+}
+
+.no-padding {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.logo-unla {
+    width: 80px;
+    padding: 5px 10px 5px 0px;
+}
+.logo-vue, .logo-react {
+    width: 90px;
+    padding: 10px 5px 5px 5px;
+}
+.logo-angular, .logo-angularjs {
+    width: 100px;
+    padding: 0px 0px 0px 5px;
+}
+.logo-jquery {
+    width: 165px;
+}
+.logo-jquery-index {
+    width: 240px;
+    margin-bottom: 0;
+}
+
+.header-tfi p {
+    font-family: Raleway;
+    font-weight: bold;
+    font-size: 32px;
+    color: black;
+    position: absolute;
+    right: 15px;
+}
+
+.header-tfi p ~ p {
+  font-family: Raleway;
+  font-weight: normal;
+  font-size: 26px;
+  color: black;
+  position: absolute;
+  right: 15px;
+  bottom: 0;
+    margin-bottom: 0;
+}
+
+#form-pronostico input {
+    font-family: Raleway;
+    color: black;
+}
+
+#form-pronostico .input-vue:focus {
+    box-shadow: 0 0 0 0.2rem #42b883;
+    border: 1px solid white;
+}
+#form-pronostico .input-angularjs:focus, #form-pronostico .input-angular:focus {
+    box-shadow: 0 0 0 0.2rem #b52e31;
+    border: 1px solid white;
+}
+#form-pronostico .input-jquery:focus {
+    box-shadow: 0 0 0 0.2rem #0769ad;
+    border: 1px solid white;
+}
+#form-pronostico .input-react:focus {
+    box-shadow: 0 0 0 0.2rem #00d8ff;
+    border: 1px solid white;
+}
+
+#form-pronostico button {
+    font-family: Raleway;
+    margin-top: 10px;
+}
+
+.btn-vue, .btn-angularjs {
+    transition: 0.5s;
+}
+
+.btn-vue:focus, .btn-vue:hover, 
+.btn-angularjs:focus, .btn-angularjs:hover,
+.btn-angular:focus, .btn-angular:hover,
+.btn-jquery:focus, .btn-jquery:hover, 
+.btn-react:focus, .btn-react:hover {
+    box-shadow: 2px 2px 0px black;
+    border: 1px solid black !important;
+    transition: 0.5s;
+}
+
+#form-pronostico .btn-vue {
+    background: #42b883;
+    border: 1px solid #42b883;
+}
+#form-pronostico .btn-angularjs, #form-pronostico .btn-angular {
+    background: #b52e31;
+    border: 1px solid #b52e31;
+}
+#form-pronostico .btn-jquery {
+    background: #0769ad;
+    border: 1px solid #0769ad;
+}
+#form-pronostico .btn-react {
+    background: #00d8ff;
+    border: 1px solid #00d8ff;
+}
+
+.error-ciudad {
+    position: absolute;
+}
+
+.error-ciudad p {
+    font-family: Raleway;
+    color: red;
+    margin-top: 10px;
+}
+
+.pronostico-hoy p {
+    color: black;
+    font-family: Raleway;
+    text-align: center;
+}
+
+.pronostico-info p {
+    color: black;
+    font-family: Raleway;
+    font-size: 20px;
+}
+
+.pronostico-hoy p:nth-child(1), .pronostico-info p:nth-child(1) {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
+.pronostico-hoy > p:nth-child(1), .pronostico-info > p:nth-child(1) {
+    font-size: 28px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.info-clima {
+    margin-top: 20px;
+}
+
+.pronostico-hoy p ~ p {
+    font-size: 40px;
+    margin-bottom: 0;
+}
+
+.pronostico-hoy p:nth-child(2n) {
+    font-size: 22px;
+}
+
+.img-pronostico {
+    width: 126px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pronostico-ciudad {
+    margin-top: 15px;
+}
+
+.pronostico-ciudad p {
+    color: black;
+    font-family: Raleway;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.img-ciudad {
+    width: 40px;
+}
+
+.table {
+    color: black;
+    font-family: Raleway;  
+}
+
+.col-name th {
+    font-size: 20px;
+}
+
+.table-hover-vue tbody tr:hover {
+    background-color: #42b883;
+}
+.table-hover-angularjs tbody tr:hover, .table-hover-angular tbody tr:hover {
+    background-color: #b52e31;
+}
+.table-hover-jquery tbody tr:hover {
+    background-color: #0769ad;
+}
+.table-hover-react tbody tr:hover {
+    background-color: #00d8ff;
+}
+
+.img-cont-ciudad span {
+    margin-top: 10px;
+}
+
+.footer-text-left, .footer-text-right {
+    color: white;
+    font-family: Raleway;
+    font-size: 12px;
+}
+
+.footer-text-right {
+    text-align: right;
+}
+
+.footer-text-right p ~ p {
+    margin-top: 50px;
+}
+
+.footer-text-right a {
+    color: white;
+}
+
+.button-del {
+    border: none;
+    background-color: white;
+}
+
+.table-hover-vue tr:hover .button-del {
+    background-color: #42b883;
+    cursor: pointer;
+}
+.table-hover-angularjs tr:hover .button-del, .table-hover-angular tr:hover .button-del {
+    background-color: #b52e31;
+    cursor: pointer;
+}
+.table-hover-jquery tr:hover .button-del {
+    background-color: #0769ad;
+    cursor: pointer;
+}
+.table-hover-react tr:hover .button-del {
+    background-color: #00d8ff;
+    cursor: pointer;
+}
+
+.table-hover-vue .button-del:focus {
+    outline: 2px solid #42b883;
+}
+.table-hover-angularjs .button-del:focus, .table-hover-angular .button-del:focus {
+    outline: 2px solid #b52e31;
+}
+.table-hover-jquery .button-del:focus {
+    outline: 2px solid #0769ad;
+}
+.table-hover-react .button-del:focus {
+    outline: 2px solid #00d8ff;
+}
