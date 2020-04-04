@@ -4,8 +4,11 @@
 -   React
 
 #### URL
+
 - https://webtfikevin.herokuapp.com
 - https://webtfikevin-react.herokuapp.com
+
+#### Para instalar el proyecto ver: [INSTALL.md](https://github.com/KevinFiorentino/web-tfi-react/blob/master/INSTALL.md "INSTALL.md")
 
 ##### **Estudiante**: Fiorentino, Kevin Emanuel
 
