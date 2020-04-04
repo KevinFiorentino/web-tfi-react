@@ -1,16 +1,13 @@
 ## Web desarrollada para obtener el título de Licenciado en Sistemas
 
-https://webtfikevin.herokuapp.com/
-https://webtfikevin.herokuapp.com/vue
-https://webtfikevin.herokuapp.com/angularjs
-https://webtfikevin.herokuapp.com/jquery
-https://webtfikevin-react.herokuapp.com
-https://webtfikevin-ng.herokuapp.com
-
 #### App Pronósitco del Tiempo
 -   React
 
-##### Estudiante: Fiorentino, Kevin Emanuel
+#### URL
+- https://webtfikevin.herokuapp.com
+- https://webtfikevin-react.herokuapp.com
+
+##### **Estudiante**: Fiorentino, Kevin Emanuel
 
 ###### 2020
 
