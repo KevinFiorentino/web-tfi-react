@@ -13,6 +13,7 @@ https://webtesiskevin-rect.herokuapp.com/
 
 #### Compilar Proyecto:
 
+- npm install
 - npm run-script build
 - node app.js
 
