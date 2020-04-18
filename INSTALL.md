@@ -6,10 +6,11 @@ https://webtesiskevin-rect.herokuapp.com/
 
 - Node.js
 - NPM
+- NPX
 
 #### Instalación React Project
 
-- npm create-react-app {app-name}
+- npx create-react-app {app-name}
 
 #### Compilar Proyecto:
 
