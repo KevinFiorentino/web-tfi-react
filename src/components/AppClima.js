@@ -1,5 +1,6 @@
 import React from 'react';
 
+/* Subcomponente para el formulario */
 class FormPronostico extends React.Component {
     render() {
         return (
@@ -15,6 +16,7 @@ class FormPronostico extends React.Component {
     } 
 }
 
+/* Subcomponente información del clima - primera parte */
 class PronosticoHoy extends React.Component {
     render() {
         return (
@@ -28,6 +30,7 @@ class PronosticoHoy extends React.Component {
     } 
 }
 
+/* Subcomponente información del clima - segunda parte */
 class PronosticoInfo extends React.Component {
     render() {
         return (
@@ -56,17 +59,23 @@ class PronosticoInfo extends React.Component {
     } 
 }
 
+/* Clase principal para construir el componente */
 class AppClima extends React.Component {
+
+  /* Constructor, seteo de atributos al inicializar el componente */
   constructor(props) {
     super(props);
 
+    /* Seteo fecha de hoy */
     var meses = new Array ("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre")
     var f = new Date()
     var fecha = f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear()
     
+    /* Seteo de eventos del componente */
     this.handleClimaClick   = this.handleClimaClick.bind(this);
     this.handleChangeInput  = this.handleChangeInput.bind(this);
 
+    /* Inicializamos los valores por defecto de los atributos del estado */
     this.state = {
         descrip:  '.....',
         icon:     'public/images/icons/clima_default.png',
@@ -88,11 +97,15 @@ class AppClima extends React.Component {
     };
   }
 
+  /* Función que se ejecuta al hacer click en el botón 'Consultar' */
   handleClimaClick(event) {
+
+    /* Consumo Web Service del clima con el valor del input */
     fetch("https://api.openweathermap.org/data/2.5/weather?q=" + this.state.value + "&units=metric&appid=f3f376b99fe63334a561bad62acb4f94")
-      .then(response => response.json())
+      .then(response => response.json()) //fetch() requiere formatear el json
       .then((response) => {
 
+          /* Variables auxiliares horarios Amanecer y Atardecer */
           var sunrise     = new Date(response.sys.sunrise * 1000)
           var sunrise_hours   = sunrise.getHours()
           var sunrise_minutes = "0" + sunrise.getMinutes()
@@ -101,6 +114,7 @@ class AppClima extends React.Component {
           var sunset_hours  = sunset.getHours()
           var sunset_minutes  = "0" + sunset.getMinutes()
 
+          /* Seteo de los atributos del estado con el response de la API */
           this.setState ({
             descrip:  getDescription(response.weather[0].icon),
             icon:     'public/images/icons/' + response.weather[0].icon + '.svg',
@@ -119,6 +133,7 @@ class AppClima extends React.Component {
         })
       .catch((error) => { 
 
+        /* En caso de erro, se setean los atributos del estado a sus valores por defecto */
         this.setState ({
             descrip:  '.....',
             icon:     'public/images/icons/clima_default.png',
@@ -142,16 +157,20 @@ class AppClima extends React.Component {
       });
   }
 
+  /* Función que guarda el valor del input con cada cambio en la variable 'this.state.value' 
+      para utilizarse posteriormente en handleClimaClick() */
   handleChangeInput(event) {
     this.setState({
       value: event.target.value
     });
   }
 
+  /* El componente retorna JSX con los subcomponentes pasandole los valores del estado correspondientes a cada uno */
   render() {
     return (
       <React.Fragment>
         <div className="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+
           <FormPronostico 
             handleClimaClick  = {this.handleClimaClick}
             error         = {this.state.error}
@@ -195,6 +214,7 @@ class AppClima extends React.Component {
   }
 }
 
+/* Función para obtener texto de descripción del clima */
 function getDescription(icon) {
   switch(icon) {
     case '01d': case '01n': {

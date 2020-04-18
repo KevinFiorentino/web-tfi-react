@@ -1,5 +1,6 @@
 import React from 'react';
 
+/* Subcomponente TRs de la tabla */
 class TRCiudades extends React.Component {
     render() {
         return (
@@ -21,6 +22,7 @@ class TRCiudades extends React.Component {
     } 
 }
 
+/* Subcomponente formulario de la tabla */
 class FormCiudades extends React.Component {
     render() {
         return (
@@ -37,19 +39,19 @@ class FormCiudades extends React.Component {
     } 
 }
 
+/* Clase principal para construir el componente */
 class AppCiudades extends React.Component {
+
+	/* Constructor, seteo de atributos al inicializar el componente */
 	constructor(props) {
 		super(props);
-
-		var meses 	= new Array ("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", 
-			"Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre")
-		var f 		= new Date()
-		var fecha 	= f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear()
 		
+		/* Seteo eventos del componente */
 		this.handleCiudadClick 	= this.handleCiudadClick.bind(this);
 		this.handleChangeInput 	= this.handleChangeInput.bind(this);
 		this.handleDelete 		= this.handleDelete.bind(this);
 
+		/* Inicializamos los valores por defecto de los atributos del estado */
 		this.state = {
 			ciudades: 	[],
   			value: 		'',
@@ -57,19 +59,26 @@ class AppCiudades extends React.Component {
 		};
 	}
 
+	/* componentDidMount se ejecuta cuando se inicializa el componente */
+	/* Ver ciclo de vida de React */
 	componentDidMount() {
 
+		/* Array con ciudades preseleccionadas */
 		var cities = new Array ("Bogota", "Buenos Aires", "Hong Kong", "Nueva York", "Madrid", "Mosku", "Paris", "Roma", "Sidney", "Viena");
 
 		{cities.map(ciudad => (
 
+			/* Consumo Web Service del clima con el valor de cada iteración del array cities */
 			fetch("https://api.openweathermap.org/data/2.5/weather?q=" + ciudad + "&units=metric&appid=f3f376b99fe63334a561bad62acb4f94")
-				.then(response => response.json())
+				.then(response => response.json()) //fetch() requiere formatear el json
 				.then((response) => {
+						/* Seteo del estado, array de ciudades */
 						this.setState ({
 							ciudades: [
+								/* ... Operador de propagación para extender un array */
 								...this.state.ciudades, 
 								{
+									/* Nuevo objeto en el array con los valores de la API */
 									icon: 	'public/images/icons/' + response.weather[0].icon + '.svg',
 									temp: 	Math.round(response.main.temp),
 						  			min: 	Math.floor(response.main.temp_min),
@@ -85,6 +94,7 @@ class AppCiudades extends React.Component {
 
 	}
 
+	/* Función que se ejecuta al hacer click en el botón 'Consultar' */
 	handleCiudadClick(event) {
 		fetch("https://api.openweathermap.org/data/2.5/weather?q=" + this.state.value + "&units=metric&appid=f3f376b99fe63334a561bad62acb4f94")
 			.then(response => response.json())
@@ -115,17 +125,21 @@ class AppCiudades extends React.Component {
 			});
 	}
 
+	/* Función que guarda el valor del input con cada cambio en la variable 'this.state.value' 
+      para utilizarse posteriormente en handleCiudadClick() */
 	handleChangeInput(event) {
 		this.setState({
 			value: event.target.value
 		});
 	}
 
+	/* Función para borrar clima de la tabla */
 	handleDelete(id) {
 		const ciudad = this.state.ciudades.filter(ciudad => ciudad.id !== id);
     	this.setState({ ciudades: ciudad });
 	}
 
+	/* El componente retorna JSX con los subcomponentes pasandole los valores del estado correspondientes a cada uno */
 	render() {
 		return (
 			<React.Fragment>
