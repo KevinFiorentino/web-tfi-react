@@ -4,8 +4,10 @@ const path = require('path');
 
 let app = express();
 
+/* Seteo directorio público */
 app.use('/public', express.static('src/assets'));
 
+/* build/ guarda la aplicación compilada que se envía al Cliente */
 app.use(express.static(path.join(__dirname, 'build')));
 
 const port = process.env.PORT || '8080';
